@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ALMUJADIN DIGITAL — Masjid Al-Mujahidin</title>
+<meta name="description" content="ALMUJADIN DIGITAL — Pusat informasi Masjid Al-Mujahidin Kramat Jati.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="top">
+  <div class="brand">
+    <div class="logo">☾</div>
+    <div>
+      <div class="brand-title">ALMUJADIN DIGITAL</div>
+      <div class="brand-sub">MASJID AL-MUJAHIDIN • KRAMAT JATI</div>
+    </div>
+  </div>
+  <div class="location">
+    <span class="green-dot"></span>
+    <div><small>LOKASI</small><b>Jl. Nusa 1 No. 38, Kramat Jati</b></div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="dashboard">
+
+    <section class="card hero">
+      <div>
+        <div class="kicker">ASSALAMU'ALAIKUM</div>
+        <h1>Selamat Datang<br>di Masjid Al-Mujahidin</h1>
+        <div class="hero-date" id="date">Memuat tanggal...</div>
+
+        <div class="clock-row">
+          <div class="clock" id="clock">00.00.00</div>
+          <div class="tz">Waktu<br>Indonesia Barat</div>
+        </div>
+
+        <div class="next">
+          <div>
+            <small>Waktu salat terdekat</small>
+            <b id="nextName">Memuat...</b>
+          </div>
+          <div class="countdown" id="countdown">--:--:--</div>
+        </div>
+
+        <div class="verse">
+          <div class="verse-ar">إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا</div>
+          <div class="verse-text">
+            “Sesungguhnya salat itu adalah kewajiban yang ditentukan waktunya atas orang-orang beriman.”
+            <span class="verse-ref">QS. An-Nisa: 103</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="card schedule">
+      <div class="schedule-head">
+        <div>
+          <div class="kicker">JADWAL</div>
+          <h2>Waktu Salat</h2>
+        </div>
+        <button class="refresh" onclick="loadPrayerTimes()" title="Perbarui">↻</button>
+      </div>
+
+      <div class="prayers">
+        <div class="prayer" data-key="Imsak"><span>Imsak</span><span class="prayer-time" id="imsak">--:--</span></div>
+        <div class="prayer" data-key="Fajr"><span>Subuh</span><span class="prayer-time" id="fajr">--:--</span></div>
+        <div class="prayer" data-key="Sunrise"><span>Terbit</span><span class="prayer-time" id="sunrise">--:--</span></div>
+        <div class="prayer" data-key="Dhuhr"><span>Dzuhur</span><span class="prayer-time" id="dhuhr">--:--</span></div>
+        <div class="prayer" data-key="Asr"><span>Ashar</span><span class="prayer-time" id="asr">--:--</span></div>
+        <div class="prayer" data-key="Maghrib"><span>Maghrib</span><span class="prayer-time" id="maghrib">--:--</span></div>
+        <div class="prayer" data-key="Isha"><span>Isya</span><span class="prayer-time" id="isha">--:--</span></div>
+      </div>
+      <div class="method">Metode perhitungan dapat disesuaikan pengurus masjid.</div>
+    </aside>
+
+  </div>
+
+  <section class="card section quote-section">
+    <div class="quote-inner">
+      <div class="quote-label">AYAT & HIKMAH</div>
+      <div class="quote-no" id="quoteNo">01 / 20</div>
+      <div class="quote-arabic" id="quoteArabic"></div>
+      <div class="quote-meaning" id="quoteMeaning"></div>
+      <div class="quote-source" id="quoteSource"></div>
+      <div class="dots" id="dots"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">KEGIATAN RUTIN</div>
+    <h2 class="section-title" style="margin-bottom:25px">Agenda Masjid</h2>
+    <div class="agenda-grid">
+      <article class="agenda">
+        <div class="agenda-icon">🌙</div>
+        <h3>Kajian Subuh</h3>
+        <p>Kajian rutin yang dilaksanakan setiap hari setelah waktu Subuh.</p>
+        <div class="agenda-time">05.30 WIB</div>
+        <div class="agenda-tag">Setiap Hari</div>
+      </article>
+      <article class="agenda">
+        <div class="agenda-icon">📖</div>
+        <h3>TPA Malam</h3>
+        <p>Kegiatan belajar Al-Qur'an setiap malam setelah Maghrib.</p>
+        <div class="agenda-time">18.30 WIB</div>
+        <div class="agenda-tag">Setiap Hari • Ba'da Maghrib</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" style="background:#f2f8f5;border-radius:30px;border:1px solid var(--line)">
+    <div class="kicker">INFORMASI HARI INI</div>
+    <h2 class="section-title" style="margin-bottom:25px">Today at ALMUJADIN</h2>
+    <div class="info-grid">
+      <article class="info card" style="box-shadow:none">
+        <h3>📅 Kalender</h3>
+        <div class="day-number" id="dayNumber">--</div>
+        <div class="day-name" id="fullDate">Memuat...</div>
+        <div class="hijri" id="hijri">Memuat kalender Hijriah...</div>
+      </article>
+
+      <article class="info card" style="box-shadow:none">
+        <h3>🧭 Arah Kiblat</h3>
+        <div class="qibla">
+          <div class="compass"><div class="needle" id="needle"></div></div>
+          <div>
+            <div class="degree">295°</div>
+            <div class="direction">Barat Laut</div>
+            <div class="qnote">Arah kiblat perkiraan dari Kramat Jati. Kompas HP akan digunakan bila sensor tersedia.</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <strong>ALMUJADIN DIGITAL</strong>
+  <p>Masjid Al-Mujahidin • Jl. Nusa 1 No. 38, Kramat Jati</p>
+  <a class="map" target="_blank" rel="noopener"
+     href="https://www.google.com/maps/search/?api=1&query=Masjid+Al-Mujahidin+Jl.+Nusa+1+No.+38+Kramat+Jati">
+     Buka Google Maps ↗
+  </a>
+</footer>
+
+<script>
+const LAT = -6.2747;
+const LON = 106.8706;
+
+const prayerMap = {
+  Imsak:"imsak", Fajr:"fajr", Sunrise:"sunrise",
+  Dhuhr:"dhuhr", Asr:"asr", Maghrib:"maghrib", Isha:"isha"
+};
+
+const prayerNames = {
+  Imsak:"Imsak", Fajr:"Subuh", Sunrise:"Terbit",
+  Dhuhr:"Dzuhur", Asr:"Ashar", Maghrib:"Maghrib", Isha:"Isya"
+};
+
+let prayerData = null;
+
+function nowJakarta(){
+  return new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Jakarta"}));
+}
+
+function updateClock(){
+  const d=nowJakarta();
+  const hh=String(d.getHours()).padStart(2,"0");
+  const mm=String(d.getMinutes()).padStart(2,"0");
+  const ss=String(d.getSeconds()).padStart(2,"0");
+  document.getElementById("clock").textContent=`${hh}.${mm}.${ss}`;
+
+  document.getElementById("date").textContent=d.toLocaleDateString("id-ID",{
+    weekday:"long",day:"numeric",month:"long",year:"numeric"
+  });
+
+  document.getElementById("dayNumber").textContent=d.getDate();
+  document.getElementById("fullDate").textContent=d.toLocaleDateString("id-ID",{
+    weekday:"long",day:"numeric",month:"long",year:"numeric"
+  });
+
+  try{
+    document.getElementById("hijri").textContent=new Intl.DateTimeFormat(
+      "id-ID-u-ca-islamic",{day:"numeric",month:"long",year:"numeric"}
+    ).format(d);
+  }catch(e){}
+  updateNext();
+}
+setInterval(updateClock,1000);
+updateClock();
+
+function minutes(t){
+  if(!t) return 9999;
+  const [h,m]=t.split(":").map(Number);
+  return h*60+m;
+}
+function clean(t){return (t||"--:--").split(" ")[0]}
+
+async function loadPrayerTimes(){
+  const d=nowJakarta();
+  const url=`https://api.aladhan.com/v1/timings/${d.getDate()}-${d.getMonth()+1}-${d.getFullYear()}?latitude=${LAT}&longitude=${LON}&method=20`;
+  try{
+    const res=await fetch(url);
+    const json=await res.json();
+    prayerData=json.data.timings;
+    Object.entries(prayerMap).forEach(([key,id])=>{
+      document.getElementById(id).textContent=clean(prayerData[key]);
+    });
+    updateNext();
+  }catch(e){
+    document.getElementById("nextName").textContent="Data belum tersedia";
+  }
+}
+
+function updateNext(){
+  if(!prayerData)return;
+  const d=nowJakarta();
+  const current=d.getHours()*60+d.getMinutes()+d.getSeconds()/60;
+  const keys=["Fajr","Dhuhr","Asr","Maghrib","Isha"];
+  let next=null, diff=0;
+  for(const key of keys){
+    const m=minutes(clean(prayerData[key]));
+    if(m>current){next=key;diff=m-current;break;}
+  }
+  if(!next){next="Fajr";diff=1440-current+minutes(clean(prayerData.Fajr));}
+  document.getElementById("nextName").textContent=prayerNames[next];
+
+  const total=Math.max(0,Math.floor(diff*60));
+  const h=String(Math.floor(total/3600)).padStart(2,"0");
+  const m=String(Math.floor((total%3600)/60)).padStart(2,"0");
+  const s=String(total%60).padStart(2,"0");
+  document.getElementById("countdown").textContent=`${h}:${m}:${s}`;
+
+  document.querySelectorAll(".prayer").forEach(x=>x.classList.remove("active"));
+  const active=keys.find((key,i)=>{
+    const start=minutes(clean(prayerData[key]));
+    const end=i<keys.length-1?minutes(clean(prayerData[keys[i+1]])):1440;
+    return current>=start&&current<end;
+  });
+  if(active){
+    document.querySelector(`.prayer[data-key="${active}"]`)?.classList.add("active");
+  }
+}
+loadPrayerTimes();
+setInterval(loadPrayerTimes,30*60*1000);
+
+/* 20 quotes — tiap slide berbeda */
+const quotes=[
+["إِنَّ مَعَ الْعُسْرِ يُسْرًا","Sesungguhnya bersama kesulitan ada kemudahan.","QS. Al-Insyirah: 6"],
+["فَاذْكُرُونِي أَذْكُرْكُمْ","Maka ingatlah kepada-Ku, niscaya Aku akan mengingatmu.","QS. Al-Baqarah: 152"],
+["وَقُل رَّبِّ زِدْنِي عِلْمًا","Ya Tuhanku, tambahkanlah kepadaku ilmu.","QS. Taha: 114"],
+["إِنَّ اللَّهَ مَعَ الصَّابِرِينَ","Sesungguhnya Allah bersama orang-orang yang sabar.","QS. Al-Baqarah: 153"],
+["وَعَلَى اللَّهِ فَتَوَكَّلُوا","Dan hanya kepada Allah hendaklah kamu bertawakal.","QS. Al-Ma'idah: 23"],
+["وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ","Mohonlah pertolongan dengan sabar dan salat.","QS. Al-Baqarah: 45"],
+["إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ","Sesungguhnya Allah mencintai orang-orang yang berbuat baik.","QS. Al-Baqarah: 195"],
+["وَقُولُوا لِلنَّاسِ حُسْنًا","Ucapkanlah kata-kata yang baik kepada manusia.","QS. Al-Baqarah: 83"],
+["وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ","Barang siapa bertawakal kepada Allah, niscaya Dia akan mencukupinya.","QS. At-Talaq: 3"],
+["وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ","Tidak ada taufik bagiku melainkan dengan pertolongan Allah.","QS. Hud: 88"],
+["إِنَّ اللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ","Sesungguhnya Allah tidak mengubah keadaan suatu kaum.","QS. Ar-Ra'd: 11"],
+["وَلَذِكْرُ اللَّهِ أَكْبَرُ","Dan mengingat Allah itu lebih besar keutamaannya.","QS. Al-Ankabut: 45"],
+["وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ","Bersyukurlah kepada-Ku dan janganlah kamu mengingkari-Ku.","QS. Al-Baqarah: 152"],
+["وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا","Barang siapa bertakwa kepada Allah, niscaya Dia akan membukakan jalan keluar.","QS. At-Talaq: 2"],
+["وَاللَّهُ خَيْرٌ حَافِظًا","Dan Allah adalah sebaik-baik penjaga.","QS. Yusuf: 64"],
+["إِنَّ اللَّهَ يُحِبُّ التَّوَّابِينَ","Sesungguhnya Allah mencintai orang-orang yang bertaubat.","QS. Al-Baqarah: 222"],
+["وَلَا تَهِنُوا وَلَا تَحْزَنُوا","Janganlah kamu merasa lemah dan jangan pula bersedih.","QS. Ali 'Imran: 139"],
+["وَقُلْ رَبِّ ارْحَمْهُمَا","Wahai Tuhanku, sayangilah keduanya.","QS. Al-Isra: 24"],
+["إِنَّ اللَّهَ مَعَ الَّذِينَ اتَّقَوا","Sesungguhnya Allah bersama orang-orang yang bertakwa.","QS. An-Nahl: 128"],
+["فَاذْكُرُوا اللَّهَ قِيَامًا وَقُعُودًا","Ingatlah Allah ketika berdiri, duduk, dan berbaring.","QS. An-Nisa: 103"]
+];
+
+let qi=0;
+const dots=document.getElementById("dots");
+quotes.forEach((_,i)=>{
+  const d=document.createElement("span");d.className="dot";if(i===0)d.classList.add("on");dots.appendChild(d);
+});
+function showQuote(i){
+  const q=quotes[i];
+  document.getElementById("quoteNo").textContent=`${String(i+1).padStart(2,"0")} / 20`;
+  document.getElementById("quoteArabic").textContent=q[0];
+  document.getElementById("quoteMeaning").textContent=q[1];
+  document.getElementById("quoteSource").textContent=q[2];
+  document.querySelectorAll(".dot").forEach((d,n)=>d.classList.toggle("on",n===i));
+}
+showQuote(0);
+setInterval(()=>{qi=(qi+1)%quotes.length;showQuote(qi)},6000);
+
+/* Compass: fallback 295°, sensor if browser allows */
+document.getElementById("needle").style.transform="rotate(295deg)";
+window.addEventListener("deviceorientationabsolute",e=>{
+  if(typeof e.alpha==="number"){
+    document.getElementById("needle").style.transform=`rotate(${295-e.alpha}deg)`;
+  }
+},true);
+</script>
+</body>
+</html>
