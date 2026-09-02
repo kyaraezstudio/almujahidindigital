@@ -1,3231 +1,486 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>ALMUJADIN DIGITAL</title>
-
-  <meta
-    name="description"
-    content="ALMUJADIN DIGITAL — Pusat informasi Masjid Al-Mujahidin, Kramat Jati."
-  />
-
-  <!-- =========================
-       GOOGLE FONTS
-  ========================== -->
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-
-  <style>
-
-    /* =========================================================
-       ROOT
-    ========================================================= */
-
-    :root {
-
-      --emerald: #006B54;
-      --emerald-dark: #004C3F;
-      --emerald-deep: #00372E;
-
-      --gold: #C9A227;
-      --gold-light: #E5CC75;
-
-      --white: #FFFFFF;
-      --cream: #F8F6ED;
-
-      --text: #18352F;
-      --muted: #72827D;
-
-      --border: rgba(0, 107, 84, .10);
-
-      --shadow:
-        0 20px 50px rgba(0, 76, 63, .10);
-
-      --radius: 26px;
-    }
-
-
-    /* =========================================================
-       RESET
-    ========================================================= */
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-
-      font-family: "DM Sans", sans-serif;
-
-      background:
-        var(--white);
-
-      color:
-        var(--text);
-
-      overflow-x:
-        hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-
-    /* =========================================================
-       TOP BAR
-    ========================================================= */
-
-    .topbar {
-
-      width: 100%;
-
-      background:
-        var(--emerald-deep);
-
-      color:
-        rgba(255,255,255,.75);
-
-      font-size:
-        12px;
-
-      padding:
-        9px 20px;
-
-      text-align:
-        center;
-
-      letter-spacing:
-        .4px;
-    }
-
-    .topbar strong {
-      color:
-        var(--gold-light);
-    }
-
-
-    /* =========================================================
-       NAVBAR
-    ========================================================= */
-
-    nav {
-
-      position:
-        absolute;
-
-      top:
-        35px;
-
-      left:
-        0;
-
-      width:
-        100%;
-
-      z-index:
-        20;
-
-      padding:
-        22px 25px;
-    }
-
-    .nav-inner {
-
-      max-width:
-        1180px;
-
-      margin:
-        auto;
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        space-between;
-    }
-
-
-    /* BRAND */
-
-    .brand {
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      gap:
-        13px;
-    }
-
-    .brand-symbol {
-
-      width:
-        47px;
-
-      height:
-        47px;
-
-      border:
-        1px solid rgba(229,204,117,.7);
-
-      border-radius:
-        50%;
-
-      display:
-        grid;
-
-      place-items:
-        center;
-
-      color:
-        var(--gold-light);
-
-      font-size:
-        21px;
-    }
-
-    .brand-name {
-
-      font-size:
-        18px;
-
-      font-weight:
-        700;
-
-      letter-spacing:
-        1.5px;
-    }
-
-    .brand-sub {
-
-      font-size:
-        10px;
-
-      margin-top:
-        2px;
-
-      color:
-        rgba(255,255,255,.55);
-
-      letter-spacing:
-        .8px;
-    }
-
-
-    /* LIVE */
-
-    .live-status {
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      gap:
-        8px;
-
-      padding:
-        9px 14px;
-
-      border:
-        1px solid rgba(255,255,255,.18);
-
-      border-radius:
-        100px;
-
-      font-size:
-        11px;
-
-      color:
-        var(--gold-light);
-
-      background:
-        rgba(255,255,255,.04);
-    }
-
-    .live-dot {
-
-      width:
-        7px;
-
-      height:
-        7px;
-
-      background:
-        #73D6A8;
-
-      border-radius:
-        50%;
-
-      animation:
-        pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-
-      0%,100% {
-        opacity: .5;
-        transform: scale(.8);
-      }
-
-      50% {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-
-    /* =========================================================
-       HERO
-    ========================================================= */
-
-    .hero {
-
-      min-height:
-        88vh;
-
-      position:
-        relative;
-
-      overflow:
-        hidden;
-
-      background:
-
-        radial-gradient(
-          circle at 85% 25%,
-          rgba(201,162,39,.15),
-          transparent 23%
-        ),
-
-        radial-gradient(
-          circle at 10% 90%,
-          rgba(255,255,255,.06),
-          transparent 30%
-        ),
-
-        linear-gradient(
-          135deg,
-          var(--emerald-deep),
-          var(--emerald)
-        );
-
-      color:
-        white;
-    }
-
-
-    /* pattern */
-
-    .hero::before {
-
-      content:
-        "";
-
-      position:
-        absolute;
-
-      inset:
-        0;
-
-      opacity:
-        .045;
-
-      background-image:
-
-        linear-gradient(
-          45deg,
-          white 1px,
-          transparent 1px
-        ),
-
-        linear-gradient(
-          -45deg,
-          white 1px,
-          transparent 1px
-        );
-
-      background-size:
-        55px 55px;
-    }
-
-
-    /* decorative circle */
-
-    .hero::after {
-
-      content:
-        "";
-
-      position:
-        absolute;
-
-      width:
-        480px;
-
-      height:
-        480px;
-
-      border:
-        1px solid rgba(229,204,117,.13);
-
-      border-radius:
-        50%;
-
-      right:
-        -180px;
-
-      bottom:
-        -200px;
-    }
-
-
-    .hero-inner {
-
-      position:
-        relative;
-
-      z-index:
-        2;
-
-      max-width:
-        1180px;
-
-      min-height:
-        88vh;
-
-      margin:
-        auto;
-
-      padding:
-        130px 25px 70px;
-
-      display:
-        grid;
-
-      grid-template-columns:
-        1.15fr .85fr;
-
-      align-items:
-        center;
-
-      gap:
-        60px;
-    }
-
-
-    /* LEFT */
-
-    .hero-label {
-
-      color:
-        var(--gold-light);
-
-      text-transform:
-        uppercase;
-
-      font-size:
-        11px;
-
-      letter-spacing:
-        4px;
-
-      margin-bottom:
-        20px;
-    }
-
-    .hero h1 {
-
-      font-family:
-        "Playfair Display",
-        serif;
-
-      font-size:
-        clamp(50px, 7vw, 90px);
-
-      line-height:
-        .94;
-
-      font-weight:
-        600;
-    }
-
-    .hero h1 span {
-
-      color:
-        var(--gold-light);
-    }
-
-    .hero-description {
-
-      margin-top:
-        27px;
-
-      max-width:
-        560px;
-
-      line-height:
-        1.8;
-
-      color:
-        rgba(255,255,255,.68);
-
-      font-size:
-        14px;
-    }
-
-    .hero-address {
-
-      display:
-        flex;
-
-      gap:
-        10px;
-
-      align-items:
-        flex-start;
-
-      margin-top:
-        28px;
-
-      color:
-        rgba(255,255,255,.8);
-
-      font-size:
-        13px;
-
-      line-height:
-        1.7;
-    }
-
-    .hero-address span {
-      color:
-        var(--gold-light);
-
-      font-size:
-        18px;
-    }
-
-
-    /* CLOCK */
-
-    .clock-card {
-
-      padding:
-        45px 30px;
-
-      text-align:
-        center;
-
-      border:
-        1px solid rgba(255,255,255,.16);
-
-      border-radius:
-        30px;
-
-      background:
-        rgba(255,255,255,.055);
-
-      backdrop-filter:
-        blur(18px);
-
-      box-shadow:
-        0 30px 70px rgba(0,0,0,.12);
-    }
-
-    .clock-label {
-
-      text-transform:
-        uppercase;
-
-      letter-spacing:
-        3px;
-
-      font-size:
-        10px;
-
-      color:
-        var(--gold-light);
-    }
-
-    #clock {
-
-      font-size:
-        clamp(42px, 5vw, 67px);
-
-      font-weight:
-        600;
-
-      letter-spacing:
-        -3px;
-
-      margin:
-        13px 0 5px;
-    }
-
-    #date {
-
-      font-size:
-        13px;
-
-      color:
-        rgba(255,255,255,.65);
-    }
-
-    #hijri {
-
-      margin-top:
-        18px;
-
-      padding-top:
-        16px;
-
-      border-top:
-        1px solid rgba(255,255,255,.10);
-
-      font-size:
-        12px;
-
-      color:
-        var(--gold-light);
-    }
-
-
-    /* =========================================================
-       SECTION
-    ========================================================= */
-
-    section {
-      padding:
-        95px 25px;
-    }
-
-    .container {
-
-      max-width:
-        1100px;
-
-      margin:
-        auto;
-    }
-
-    .section-label {
-
-      color:
-        var(--gold);
-
-      font-size:
-        10px;
-
-      letter-spacing:
-        4px;
-
-      text-transform:
-        uppercase;
-
-      font-weight:
-        700;
-
-      margin-bottom:
-        10px;
-    }
-
-    .section-title {
-
-      font-family:
-        "Playfair Display",
-        serif;
-
-      font-size:
-        clamp(32px, 5vw, 48px);
-
-      color:
-        var(--emerald-dark);
-
-      margin-bottom:
-        35px;
-    }
-
-
-    /* =========================================================
-       PRAYER
-    ========================================================= */
-
-    .prayer-section {
-      background:
-        var(--cream);
-    }
-
-    .prayer-header {
-
-      display:
-        flex;
-
-      align-items:
-        flex-end;
-
-      justify-content:
-        space-between;
-
-      gap:
-        20px;
-
-      margin-bottom:
-        30px;
-    }
-
-    .next-prayer {
-
-      font-size:
-        12px;
-
-      color:
-        var(--muted);
-
-      text-align:
-        right;
-    }
-
-    .next-prayer strong {
-
-      display:
-        block;
-
-      color:
-        var(--emerald);
-
-      font-size:
-        16px;
-
-      margin-top:
-        3px;
-    }
-
-    .prayer-grid {
-
-      display:
-        grid;
-
-      grid-template-columns:
-        repeat(5, 1fr);
-
-      gap:
-        13px;
-    }
-
-    .prayer-card {
-
-      background:
-        white;
-
-      padding:
-        27px 12px;
-
-      text-align:
-        center;
-
-      border-radius:
-        21px;
-
-      border:
-        1px solid var(--border);
-
-      transition:
-        .3s ease;
-    }
-
-    .prayer-card:hover {
-
-      transform:
-        translateY(-5px);
-
-      box-shadow:
-        var(--shadow);
-    }
-
-    .prayer-card.active {
-
-      background:
-        var(--emerald);
-
-      color:
-        white;
-
-      box-shadow:
-        0 20px 40px rgba(0,107,84,.22);
-
-      transform:
-        translateY(-6px);
-    }
-
-    .prayer-name {
-
-      font-size:
-        10px;
-
-      text-transform:
-        uppercase;
-
-      letter-spacing:
-        2px;
-
-      color:
-        var(--muted);
-    }
-
-    .active .prayer-name {
-
-      color:
-        rgba(255,255,255,.65);
-    }
-
-    .prayer-time {
-
-      font-size:
-        25px;
-
-      font-weight:
-        700;
-
-      margin-top:
-        9px;
-    }
-
-
-    /* =========================================================
-       QUOTE SLIDER
-    ========================================================= */
-
-    .quotes {
-
-      position:
-        relative;
-
-      overflow:
-        hidden;
-
-      background:
-        var(--emerald-dark);
-
-      color:
-        white;
-    }
-
-    .quotes::before {
-
-      content:
-        "ﷲ";
-
-      position:
-        absolute;
-
-      right:
-        5%;
-
-      top:
-        5%;
-
-      font-family:
-        "Amiri",
-        serif;
-
-      font-size:
-        270px;
-
-      color:
-        rgba(255,255,255,.025);
-    }
-
-    .quote-container {
-
-      max-width:
-        950px;
-
-      margin:
-        auto;
-
-      text-align:
-        center;
-
-      position:
-        relative;
-
-      z-index:
-        2;
-    }
-
-    .quote-label {
-
-      color:
-        var(--gold-light);
-
-      font-size:
-        10px;
-
-      letter-spacing:
-        4px;
-
-      text-transform:
-        uppercase;
-    }
-
-    .quote-number {
-
-      margin-top:
-        18px;
-
-      font-size:
-        11px;
-
-      letter-spacing:
-        3px;
-
-      color:
-        rgba(255,255,255,.45);
-    }
-
-    .quote-slide {
-
-      min-height:
-        310px;
-
-      display:
-        flex;
-
-      flex-direction:
-        column;
-
-      justify-content:
-        center;
-
-      align-items:
-        center;
-    }
-
-    .quote-arabic {
-
-      font-family:
-        "Amiri",
-        serif;
-
-      direction:
-        rtl;
-
-      font-size:
-        clamp(35px, 5vw, 62px);
-
-      line-height:
-        1.7;
-
-      max-width:
-        850px;
-    }
-
-    .quote-meaning {
-
-      margin-top:
-        18px;
-
-      max-width:
-        650px;
-
-      color:
-        rgba(255,255,255,.68);
-
-      line-height:
-        1.8;
-
-      font-size:
-        14px;
-    }
-
-    .quote-source {
-
-      margin-top:
-        14px;
-
-      color:
-        var(--gold-light);
-
-      font-size:
-        11px;
-
-      letter-spacing:
-        1px;
-    }
-
-    .quote-controls {
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      gap:
-        8px;
-    }
-
-    .quote-dot {
-
-      width:
-        6px;
-
-      height:
-        6px;
-
-      background:
-        rgba(255,255,255,.22);
-
-      border-radius:
-        50%;
-
-      transition:
-        .3s;
-    }
-
-    .quote-dot.active {
-
-      width:
-        24px;
-
-      border-radius:
-        10px;
-
-      background:
-        var(--gold);
-    }
-
-
-    /* =========================================================
-       AGENDA
-    ========================================================= */
-
-    .agenda-grid {
-
-      display:
-        grid;
-
-      grid-template-columns:
-        repeat(2,1fr);
-
-      gap:
-        20px;
-    }
-
-    .agenda-card {
-
-      padding:
-        35px;
-
-      border-radius:
-        var(--radius);
-
-      background:
-        var(--cream);
-
-      border:
-        1px solid rgba(0,107,84,.06);
-
-      position:
-        relative;
-
-      overflow:
-        hidden;
-    }
-
-    .agenda-card::after {
-
-      content:
-        "";
-
-      width:
-        130px;
-
-      height:
-        130px;
-
-      border:
-        1px solid rgba(201,162,39,.2);
-
-      border-radius:
-        50%;
-
-      position:
-        absolute;
-
-      right:
-        -55px;
-
-      top:
-        -55px;
-    }
-
-    .agenda-icon {
-
-      font-size:
-        30px;
-
-      margin-bottom:
-        18px;
-    }
-
-    .agenda-card h3 {
-
-      font-family:
-        "Playfair Display",
-        serif;
-
-      font-size:
-        27px;
-
-      color:
-        var(--emerald-dark);
-    }
-
-    .agenda-card p {
-
-      margin-top:
-        9px;
-
-      color:
-        var(--muted);
-
-      line-height:
-        1.7;
-
-      font-size:
-        13px;
-    }
-
-    .agenda-time {
-
-      display:
-        inline-block;
-
-      margin-top:
-        23px;
-
-      color:
-        var(--gold);
-
-      font-size:
-        25px;
-
-      font-weight:
-        700;
-    }
-
-    .agenda-tag {
-
-      margin-top:
-        4px;
-
-      font-size:
-        10px;
-
-      color:
-        var(--muted);
-
-      text-transform:
-        uppercase;
-
-      letter-spacing:
-        1.5px;
-    }
-
-
-    /* =========================================================
-       TODAY
-    ========================================================= */
-
-    .today-section {
-      background:
-        var(--cream);
-    }
-
-    .info-grid {
-
-      display:
-        grid;
-
-      grid-template-columns:
-        1fr 1fr;
-
-      gap:
-        20px;
-    }
-
-    .info-card {
-
-      background:
-        white;
-
-      padding:
-        35px;
-
-      border-radius:
-        var(--radius);
-
-      border:
-        1px solid var(--border);
-    }
-
-    .info-card h3 {
-
-      font-family:
-        "Playfair Display",
-        serif;
-
-      color:
-        var(--emerald-dark);
-
-      font-size:
-        27px;
-
-      margin-bottom:
-        20px;
-    }
-
-
-    /* calendar */
-
-    .calendar-number {
-
-      font-size:
-        65px;
-
-      line-height:
-        1;
-
-      font-weight:
-        700;
-
-      color:
-        var(--emerald);
-    }
-
-    .calendar-month {
-
-      margin-top:
-        8px;
-
-      color:
-        var(--text);
-
-      font-size:
-        15px;
-
-      font-weight:
-        600;
-    }
-
-    .calendar-hijri {
-
-      margin-top:
-        13px;
-
-      color:
-        var(--gold);
-
-      font-size:
-        13px;
-
-      line-height:
-        1.6;
-    }
-
-
-    /* =========================================================
-       QIBLA
-    ========================================================= */
-
-    .qibla-box {
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      gap:
-        30px;
-    }
-
-    .compass {
-
-      width:
-        145px;
-
-      height:
-        145px;
-
-      flex-shrink:
-        0;
-
-      border:
-        2px solid var(--gold);
-
-      border-radius:
-        50%;
-
-      position:
-        relative;
-
-      display:
-        grid;
-
-      place-items:
-        center;
-
-      background:
-        var(--cream);
-    }
-
-    .compass::before {
-
-      content:
-        "N";
-
-      position:
-        absolute;
-
-      top:
-        8px;
-
-      color:
-        var(--emerald);
-
-      font-weight:
-        700;
-    }
-
-    .compass::after {
-
-      content:
-        "S";
-
-      position:
-        absolute;
-
-      bottom:
-        8px;
-
-      color:
-        var(--muted);
-
-      font-size:
-        11px;
-    }
-
-    .compass-needle {
-
-      width:
-        3px;
-
-      height:
-        90px;
-
-      position:
-        relative;
-
-      transform:
-        rotate(0deg);
-
-      transition:
-        transform .5s ease;
-    }
-
-    .compass-needle::before {
-
-      content:
-        "";
-
-      position:
-        absolute;
-
-      top:
-        0;
-
-      left:
-        -5px;
-
-      border-left:
-        7px solid transparent;
-
-      border-right:
-        7px solid transparent;
-
-      border-bottom:
-        42px solid var(--gold);
-    }
-
-    .compass-needle::after {
-
-      content:
-        "";
-
-      position:
-        absolute;
-
-      bottom:
-        0;
-
-      left:
-        -5px;
-
-      border-left:
-        7px solid transparent;
-
-      border-right:
-        7px solid transparent;
-
-      border-top:
-        42px solid var(--emerald);
-    }
-
-    .qibla-degree {
-
-      color:
-        var(--emerald);
-
-      font-size:
-        35px;
-
-      font-weight:
-        700;
-    }
-
-    .qibla-direction {
-
-      margin-top:
-        4px;
-
-      font-size:
-        13px;
-
-      color:
-        var(--text);
-    }
-
-    .qibla-note {
-
-      margin-top:
-        8px;
-
-      color:
-        var(--muted);
-
-      font-size:
-        11px;
-
-      line-height:
-        1.6;
-    }
-
-
-    /* =========================================================
-       LOCATION
-    ========================================================= */
-
-    .location {
-
-      background:
-        var(--emerald-deep);
-
-      color:
-        white;
-
-      text-align:
-        center;
-    }
-
-    .location .section-label {
-      color:
-        var(--gold-light);
-    }
-
-    .location h2 {
-
-      font-family:
-        "Playfair Display",
-        serif;
-
-      font-size:
-        clamp(32px,5vw,48px);
-
-      margin-bottom:
-        15px;
-    }
-
-    .location-address {
-
-      color:
-        rgba(255,255,255,.65);
-
-      font-size:
-        13px;
-
-      line-height:
-        1.8;
-    }
-
-    .map-button {
-
-      display:
-        inline-block;
-
-      margin-top:
-        27px;
-
-      border:
-        1px solid var(--gold);
-
-      color:
-        var(--gold-light);
-
-      padding:
-        12px 21px;
-
-      border-radius:
-        100px;
-
-      font-size:
-        12px;
-
-      transition:
-        .3s;
-    }
-
-    .map-button:hover {
-
-      background:
-        var(--gold);
-
-      color:
-        var(--emerald-deep);
-    }
-
-
-    /* =========================================================
-       FOOTER
-    ========================================================= */
-
-    footer {
-
-      background:
-        #002D26;
-
-      color:
-        rgba(255,255,255,.45);
-
-      text-align:
-        center;
-
-      padding:
-        25px;
-
-      font-size:
-        11px;
-    }
-
-    footer strong {
-      color:
-        var(--gold-light);
-    }
-
-
-    /* =========================================================
-       FADE ANIMATION
-    ========================================================= */
-
-    .fade {
-
-      animation:
-        fadeQuote .6s ease;
-    }
-
-    @keyframes fadeQuote {
-
-      from {
-        opacity: 0;
-        transform: translateY(8px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-
-    /* =========================================================
-       MOBILE
-    ========================================================= */
-
-    @media(max-width:850px) {
-
-      .hero-inner {
-
-        grid-template-columns:
-          1fr;
-
-        text-align:
-          center;
-
-        padding-top:
-          130px;
-      }
-
-      .hero-description {
-        margin-left:
-          auto;
-
-        margin-right:
-          auto;
-      }
-
-      .hero-address {
-        justify-content:
-          center;
-
-        text-align:
-          left;
-      }
-
-      .clock-card {
-        max-width:
-          520px;
-
-        width:
-          100%;
-
-        margin:
-          auto;
-      }
-
-      .prayer-grid {
-        grid-template-columns:
-          repeat(3,1fr);
-      }
-
-      .agenda-grid,
-      .info-grid {
-        grid-template-columns:
-          1fr;
-      }
-
-      .prayer-header {
-        align-items:
-          flex-start;
-
-        flex-direction:
-          column;
-      }
-
-      .next-prayer {
-        text-align:
-          left;
-      }
-    }
-
-
-    @media(max-width:550px) {
-
-      nav {
-        top:
-          30px;
-
-        padding:
-          18px;
-      }
-
-      .brand-name {
-        font-size:
-          15px;
-      }
-
-      .brand-symbol {
-        width:
-          40px;
-
-        height:
-          40px;
-      }
-
-      .live-status {
-        display:
-          none;
-      }
-
-      section {
-        padding:
-          70px 18px;
-      }
-
-      .hero-inner {
-        padding:
-          125px 18px 60px;
-      }
-
-      .hero h1 {
-        font-size:
-          53px;
-      }
-
-      .clock-card {
-        padding:
-          35px 18px;
-      }
-
-      .prayer-grid {
-        grid-template-columns:
-          repeat(2,1fr);
-
-        gap:
-          8px;
-      }
-
-      .prayer-card:last-child {
-        grid-column:
-          span 2;
-      }
-
-      .agenda-card,
-      .info-card {
-        padding:
-          27px;
-      }
-
-      .qibla-box {
-        flex-direction:
-          column;
-
-        text-align:
-          center;
-      }
-
-      .quote-arabic {
-        font-size:
-          34px;
-      }
-
-      .quote-slide {
-        min-height:
-          360px;
-      }
-    }
-
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ALMUJADIN DIGITAL — Masjid Al-Mujahidin</title>
+<meta name="description" content="ALMUJADIN DIGITAL — Pusat informasi Masjid Al-Mujahidin Kramat Jati.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --emerald:#006b54;
+  --emerald-dark:#004c3f;
+  --emerald-deep:#00372e;
+  --gold:#c9a227;
+  --gold-soft:#ead58b;
+  --cream:#f7faf8;
+  --paper:#ffffff;
+  --ink:#18352f;
+  --muted:#70827d;
+  --line:#dce9e4;
+  --shadow:0 18px 55px rgba(0,75,60,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"DM Sans",sans-serif;
+  background:#ffffff;
+  color:var(--ink);
+}
+button{font:inherit}
+a{text-decoration:none;color:inherit}
+
+body:before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;opacity:.28;z-index:-1;
+  background-image:radial-gradient(rgba(0,107,84,.10) 0.6px,transparent .6px);
+  background-size:20px 20px;
+}
+
+.top{
+  max-width:1440px;margin:auto;padding:24px 4vw 10px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{
+  width:58px;height:58px;border:2px solid var(--gold);border-radius:50%;
+  display:grid;place-items:center;color:var(--gold);font-size:27px;background:#ffffff;
+}
+.brand-title{font-weight:700;letter-spacing:3px;font-size:18px}
+.brand-sub{font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:4px}
+.location{
+  background:#ffffff;border:1px solid var(--line);border-radius:30px;
+  padding:10px 18px;display:flex;align-items:center;gap:9px;font-size:12px;
+}
+.location b{display:block;font-size:12px}.location small{color:var(--muted)}
+.green-dot{width:8px;height:8px;border-radius:50%;background:#4caf73}
+
+.wrap{max-width:1440px;margin:auto;padding:20px 4vw 70px}
+.dashboard{
+  display:grid;grid-template-columns:minmax(0,1.55fr) minmax(320px,.7fr);gap:20px;
+}
+.card{
+  background:#ffffff;border:1px solid var(--line);
+  border-radius:30px;box-shadow:var(--shadow);
+}
+.hero{padding:55px 5vw 40px;min-height:650px;
+  background:
+    radial-gradient(circle at 95% 5%,rgba(212,175,55,.12),transparent 26%),
+    linear-gradient(135deg,#ffffff 0%,#ffffff 68%,#f3faf7 100%);
+  border-top:4px solid var(--emerald);display:flex;flex-direction:column;justify-content:space-between}
+.kicker{font-size:11px;letter-spacing:4px;color:var(--gold);font-weight:700;margin-bottom:22px}
+.hero h1{
+  font-family:"Playfair Display",serif;font-weight:600;
+  font-size:clamp(48px,6vw,82px);line-height:.97;max-width:800px;
+  color:var(--emerald-dark);
+}
+.hero-date{color:var(--muted);font-size:14px;margin-top:24px}
+.clock{
+  font-size:clamp(58px,7vw,90px);font-weight:700;color:var(--emerald-dark);letter-spacing:-4px;
+  margin-top:28px;line-height:1;
+}
+.clock-row{display:flex;align-items:center;gap:14px}
+.tz{font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase}
+.next{
+  margin-top:42px;border:1px solid var(--gold-soft);background:#f5fbf8;
+  box-shadow:inset 4px 0 0 var(--gold);
+  border-radius:20px;padding:22px;display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.next small{font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase}
+.next b{display:block;font-family:"Playfair Display",serif;font-size:28px;margin-top:4px}
+.countdown{font-size:clamp(32px,4vw,56px);font-weight:700;color:var(--gold);letter-spacing:1px}
+.verse{
+  margin-top:30px;display:grid;grid-template-columns:220px 1fr;gap:25px;align-items:center;
+}
+.verse-ar{font-family:"Amiri",serif;color:var(--gold);font-size:28px;direction:rtl}
+.verse-text{font-family:"Playfair Display",serif;font-style:italic;color:#766d5e;line-height:1.6}
+.verse-ref{font-family:"DM Sans",sans-serif;font-style:normal;color:var(--gold);font-size:10px;font-weight:700;display:block;margin-top:8px}
+
+.schedule{padding:35px 25px;border-top:4px solid var(--gold)}
+.schedule-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+.schedule-head .kicker{margin:0}
+.schedule h2,.section-title{font-family:"Playfair Display",serif;font-size:34px}
+.refresh{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:white;color:var(--gold);cursor:pointer}
+.prayers{display:flex;flex-direction:column;gap:2px}
+.prayer{
+  padding:14px;border-radius:15px;display:flex;justify-content:space-between;align-items:center;
+  font-size:13px;font-weight:600;
+}
+.prayer.active{background:var(--emerald);color:#fff;border:1px solid var(--emerald)}
+.prayer-time{font-size:18px}
+.method{font-size:9px;color:#aaa;text-align:center;margin-top:25px}
+
+.section{margin-top:20px;padding:42px}
+.quote-section{
+  background:linear-gradient(135deg,var(--emerald-dark),var(--emerald));
+  color:white;overflow:hidden;position:relative;border:1px solid #075d4c;
+  box-shadow:0 20px 55px rgba(0,75,60,.20);
+}
+.quote-section:after{content:"ﷲ";position:absolute;right:4%;top:-35px;font:260px "Amiri";color:rgba(255,255,255,.035)}
+.quote-inner{position:relative;z-index:1;text-align:center;max-width:1000px;margin:auto}
+.quote-label{color:var(--gold-soft);font-size:10px;letter-spacing:4px}
+.quote-no{font-size:11px;color:rgba(255,255,255,.45);letter-spacing:3px;margin:16px 0}
+.quote-arabic{font:clamp(38px,5vw,64px) "Amiri";direction:rtl;line-height:1.7;min-height:125px}
+.quote-meaning{max-width:680px;margin:8px auto;color:rgba(255,255,255,.72);line-height:1.8;font-size:14px}
+.quote-source{margin-top:12px;color:var(--gold-soft);font-size:10px;letter-spacing:1px}
+.dots{display:flex;justify-content:center;gap:7px;margin-top:25px}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.25);transition:.3s}
+.dot.on{width:24px;background:var(--gold);border-radius:10px}
+
+.agenda-grid,.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.agenda{
+  padding:30px;background:#ffffff;border:1px solid var(--line);border-radius:24px;
+  position:relative;overflow:hidden
+}
+.agenda-icon{font-size:25px;margin-bottom:14px}
+.agenda h3{font:28px "Playfair Display",serif;color:var(--emerald-dark)}
+.agenda p{font-size:13px;color:var(--muted);line-height:1.7;margin-top:8px}
+.agenda-time{font-size:28px;font-weight:700;color:var(--gold);margin-top:20px}
+.agenda-tag{font-size:9px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:3px}
+
+.info{padding:30px}
+.info h3{font:28px "Playfair Display",serif;color:var(--emerald-dark);margin-bottom:20px}
+.day-number{font-size:65px;font-weight:700;color:var(--emerald);line-height:1}
+.day-name{font-weight:600;margin-top:8px}.hijri{font-size:12px;color:var(--gold);margin-top:8px}
+.qibla{display:flex;align-items:center;gap:25px}
+.compass{
+  width:145px;height:145px;border:2px solid var(--gold);border-radius:50%;position:relative;
+  display:grid;place-items:center;background:#ffffff;flex:none;box-shadow:0 8px 24px rgba(0,75,60,.08);
+}
+.compass:before{content:"N";position:absolute;top:9px;color:var(--emerald);font-weight:700}
+.compass:after{content:"S";position:absolute;bottom:9px;color:var(--muted);font-size:10px}
+.needle{width:3px;height:92px;position:relative;transform-origin:center;transition:.5s}
+.needle:before{content:"";position:absolute;top:0;left:-5px;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:44px solid var(--gold)}
+.needle:after{content:"";position:absolute;bottom:0;left:-5px;border-left:7px solid transparent;border-right:7px solid transparent;border-top:44px solid var(--emerald)}
+.degree{font-size:34px;font-weight:700;color:var(--emerald)}.direction{font-size:13px}.qnote{font-size:11px;color:var(--muted);line-height:1.6;margin-top:7px}
+
+footer{
+  background:var(--emerald-deep);color:white;text-align:center;padding:42px 20px;
+  border-top:4px solid var(--gold);
+}
+footer strong{color:var(--gold-soft);letter-spacing:2px}
+footer p{color:rgba(255,255,255,.55);font-size:12px;margin-top:10px}
+.map{
+  display:inline-block;margin-top:20px;border:1px solid var(--gold);color:var(--gold-soft);
+  border-radius:30px;padding:11px 20px;font-size:11px
+}
+
+@media(max-width:900px){
+  .dashboard{grid-template-columns:1fr}
+  .hero{min-height:auto;padding:42px 30px}
+  .schedule{padding:30px}
+}
+@media(max-width:600px){
+  .top{padding:18px}.location{display:none}
+  .wrap{padding:10px 14px 50px}
+  .hero h1{font-size:48px}.clock{font-size:58px}
+  .next{align-items:flex-start;flex-direction:column}.countdown{font-size:38px}
+  .verse{grid-template-columns:1fr;gap:10px}
+  .agenda-grid,.info-grid{grid-template-columns:1fr}
+  .section{padding:28px 20px}.qibla{flex-direction:column;align-items:flex-start}
+}
+
+.brand-title{color:var(--emerald-dark)}
+.location{box-shadow:0 6px 20px rgba(0,75,60,.06)}
+.schedule h2,.section-title{color:var(--emerald-dark)}
+.agenda-time{font-variant-numeric:tabular-nums}
+.info h3{color:var(--emerald-dark)}
+
+</style>
 </head>
-
 
 <body>
 
+<header class="top">
+  <div class="brand">
+    <div class="logo">☾</div>
+    <div>
+      <div class="brand-title">ALMUJADIN DIGITAL</div>
+      <div class="brand-sub">MASJID AL-MUJAHIDIN • KRAMAT JATI</div>
+    </div>
+  </div>
+  <div class="location">
+    <span class="green-dot"></span>
+    <div><small>LOKASI</small><b>Jl. Nusa 1 No. 38, Kramat Jati</b></div>
+  </div>
+</header>
 
-  <!-- =========================================================
-       TOP BAR
-  ========================================================== -->
+<main class="wrap">
 
-  <div class="topbar">
-    <strong>ALMUJADIN DIGITAL</strong>
-    &nbsp;•&nbsp;
-    Pusat Informasi Masjid Al-Mujahidin
+  <div class="dashboard">
+
+    <section class="card hero">
+      <div>
+        <div class="kicker">ASSALAMU'ALAIKUM</div>
+        <h1>Selamat Datang<br>di Masjid Al-Mujahidin</h1>
+        <div class="hero-date" id="date">Memuat tanggal...</div>
+
+        <div class="clock-row">
+          <div class="clock" id="clock">00.00.00</div>
+          <div class="tz">Waktu<br>Indonesia Barat</div>
+        </div>
+
+        <div class="next">
+          <div>
+            <small>Waktu salat terdekat</small>
+            <b id="nextName">Memuat...</b>
+          </div>
+          <div class="countdown" id="countdown">--:--:--</div>
+        </div>
+
+        <div class="verse">
+          <div class="verse-ar">إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا</div>
+          <div class="verse-text">
+            “Sesungguhnya salat itu adalah kewajiban yang ditentukan waktunya atas orang-orang beriman.”
+            <span class="verse-ref">QS. An-Nisa: 103</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="card schedule">
+      <div class="schedule-head">
+        <div>
+          <div class="kicker">JADWAL</div>
+          <h2>Waktu Salat</h2>
+        </div>
+        <button class="refresh" onclick="loadPrayerTimes()" title="Perbarui">↻</button>
+      </div>
+
+      <div class="prayers">
+        <div class="prayer" data-key="Imsak"><span>Imsak</span><span class="prayer-time" id="imsak">--:--</span></div>
+        <div class="prayer" data-key="Fajr"><span>Subuh</span><span class="prayer-time" id="fajr">--:--</span></div>
+        <div class="prayer" data-key="Sunrise"><span>Terbit</span><span class="prayer-time" id="sunrise">--:--</span></div>
+        <div class="prayer" data-key="Dhuhr"><span>Dzuhur</span><span class="prayer-time" id="dhuhr">--:--</span></div>
+        <div class="prayer" data-key="Asr"><span>Ashar</span><span class="prayer-time" id="asr">--:--</span></div>
+        <div class="prayer" data-key="Maghrib"><span>Maghrib</span><span class="prayer-time" id="maghrib">--:--</span></div>
+        <div class="prayer" data-key="Isha"><span>Isya</span><span class="prayer-time" id="isha">--:--</span></div>
+      </div>
+      <div class="method">Metode perhitungan dapat disesuaikan pengurus masjid.</div>
+    </aside>
+
   </div>
 
+  <section class="card section quote-section">
+    <div class="quote-inner">
+      <div class="quote-label">AYAT & HIKMAH</div>
+      <div class="quote-no" id="quoteNo">01 / 20</div>
+      <div class="quote-arabic" id="quoteArabic"></div>
+      <div class="quote-meaning" id="quoteMeaning"></div>
+      <div class="quote-source" id="quoteSource"></div>
+      <div class="dots" id="dots"></div>
+    </div>
+  </section>
 
-  <!-- =========================================================
-       HERO
-  ========================================================== -->
+  <section class="section">
+    <div class="kicker">KEGIATAN RUTIN</div>
+    <h2 class="section-title" style="margin-bottom:25px">Agenda Masjid</h2>
+    <div class="agenda-grid">
+      <article class="agenda">
+        <div class="agenda-icon">🌙</div>
+        <h3>Kajian Subuh</h3>
+        <p>Kajian rutin yang dilaksanakan setiap hari setelah waktu Subuh.</p>
+        <div class="agenda-time">05.30 WIB</div>
+        <div class="agenda-tag">Setiap Hari</div>
+      </article>
+      <article class="agenda">
+        <div class="agenda-icon">📖</div>
+        <h3>TPA Malam</h3>
+        <p>Kegiatan belajar Al-Qur'an setiap malam setelah Maghrib.</p>
+        <div class="agenda-time">18.30 WIB</div>
+        <div class="agenda-tag">Setiap Hari • Ba'da Maghrib</div>
+      </article>
+    </div>
+  </section>
 
-  <header class="hero">
+  <section class="section" style="background:#f2f8f5;border-radius:30px;border:1px solid var(--line)">
+    <div class="kicker">INFORMASI HARI INI</div>
+    <h2 class="section-title" style="margin-bottom:25px">Today at ALMUJADIN</h2>
+    <div class="info-grid">
+      <article class="info card" style="box-shadow:none">
+        <h3>📅 Kalender</h3>
+        <div class="day-number" id="dayNumber">--</div>
+        <div class="day-name" id="fullDate">Memuat...</div>
+        <div class="hijri" id="hijri">Memuat kalender Hijriah...</div>
+      </article>
 
-    <nav>
-
-      <div class="nav-inner">
-
-        <div class="brand">
-
-          <div class="brand-symbol">
-            ☾
-          </div>
-
+      <article class="info card" style="box-shadow:none">
+        <h3>🧭 Arah Kiblat</h3>
+        <div class="qibla">
+          <div class="compass"><div class="needle" id="needle"></div></div>
           <div>
-
-            <div class="brand-name">
-              ALMUJADIN DIGITAL
-            </div>
-
-            <div class="brand-sub">
-              MASJID AL-MUJAHIDIN • KRAMAT JATI
-            </div>
-
+            <div class="degree">295°</div>
+            <div class="direction">Barat Laut</div>
+            <div class="qnote">Arah kiblat perkiraan dari Kramat Jati. Kompas HP akan digunakan bila sensor tersedia.</div>
           </div>
-
         </div>
-
-
-        <div class="live-status">
-
-          <span class="live-dot"></span>
-
-          LIVE INFORMATION
-
-        </div>
-
-      </div>
-
-    </nav>
-
-
-    <div class="hero-inner">
-
-
-      <!-- LEFT -->
-
-      <div>
-
-        <div class="hero-label">
-          Masjid Al-Mujahidin
-        </div>
-
-        <h1>
-          ALMUJADIN
-          <span>DIGITAL.</span>
-        </h1>
-
-        <p class="hero-description">
-
-          Pusat informasi digital Masjid Al-Mujahidin.
-          Pantau waktu, jadwal sholat, kegiatan masjid,
-          ayat pilihan, kalender Hijriah, dan arah kiblat
-          dalam satu tempat.
-
-        </p>
-
-
-        <div class="hero-address">
-
-          <span>⌖</span>
-
-          <div>
-
-            Jl. Nusa 1 No. 38<br>
-            Kramat Jati, Jakarta
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- CLOCK -->
-
-      <div class="clock-card">
-
-        <div class="clock-label">
-          Waktu Sekarang
-        </div>
-
-        <div id="clock">
-          00:00:00
-        </div>
-
-        <div id="date">
-          Memuat tanggal...
-        </div>
-
-        <div id="hijri">
-          Memuat kalender Hijriah...
-        </div>
-
-      </div>
-
+      </article>
     </div>
-
-  </header>
-
-
-
-  <!-- =========================================================
-       PRAYER TIMES
-  ========================================================== -->
-
-  <section class="prayer-section">
-
-    <div class="container">
-
-      <div class="prayer-header">
-
-        <div>
-
-          <div class="section-label">
-            Waktu Ibadah
-          </div>
-
-          <h2 class="section-title">
-            Jadwal Sholat
-          </h2>
-
-        </div>
-
-
-        <div class="next-prayer">
-
-          Sholat berikutnya
-
-          <strong id="nextPrayer">
-            Memuat...
-          </strong>
-
-        </div>
-
-      </div>
-
-
-      <div class="prayer-grid">
-
-        <div class="prayer-card" data-name="Subuh">
-          <div class="prayer-name">
-            Subuh
-          </div>
-
-          <div class="prayer-time" id="fajr">
-            --:--
-          </div>
-        </div>
-
-
-        <div class="prayer-card" data-name="Dzuhur">
-          <div class="prayer-name">
-            Dzuhur
-          </div>
-
-          <div class="prayer-time" id="dhuhr">
-            --:--
-          </div>
-        </div>
-
-
-        <div class="prayer-card" data-name="Ashar">
-          <div class="prayer-name">
-            Ashar
-          </div>
-
-          <div class="prayer-time" id="asr">
-            --:--
-          </div>
-        </div>
-
-
-        <div class="prayer-card" data-name="Maghrib">
-          <div class="prayer-name">
-            Maghrib
-          </div>
-
-          <div class="prayer-time" id="maghrib">
-            --:--
-          </div>
-        </div>
-
-
-        <div class="prayer-card" data-name="Isya">
-          <div class="prayer-name">
-            Isya
-          </div>
-
-          <div class="prayer-time" id="isha">
-            --:--
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
   </section>
 
-
-
-  <!-- =========================================================
-       QUOTE SLIDER
-  ========================================================== -->
-
-  <section class="quotes">
-
-    <div class="quote-container">
-
-      <div class="quote-label">
-        Ayat & Hikmah
-      </div>
-
-      <div class="quote-number" id="quoteNumber">
-        01 / 20
-      </div>
-
-
-      <div class="quote-slide" id="quoteSlide">
-
-        <div
-          class="quote-arabic"
-          id="quoteArabic"
-        >
-          إِنَّ مَعَ الْعُسْرِ يُسْرًا
-        </div>
-
-        <div
-          class="quote-meaning"
-          id="quoteMeaning"
-        >
-          Sesungguhnya bersama kesulitan ada kemudahan.
-        </div>
-
-        <div
-          class="quote-source"
-          id="quoteSource"
-        >
-          QS. Al-Insyirah: 6
-        </div>
-
-      </div>
-
-
-      <div
-        class="quote-controls"
-        id="quoteDots"
-      ></div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================================================
-       AGENDA
-  ========================================================== -->
-
-  <section>
-
-    <div class="container">
-
-      <div class="section-label">
-        Kegiatan Rutin
-      </div>
-
-      <h2 class="section-title">
-        Agenda Masjid
-      </h2>
-
-
-      <div class="agenda-grid">
-
-
-        <!-- KAJIAN -->
-
-        <div class="agenda-card">
-
-          <div class="agenda-icon">
-            🌙
-          </div>
-
-          <h3>
-            Kajian Subuh
-          </h3>
-
-          <p>
-            Kajian rutin yang dilaksanakan
-            setiap hari sebagai pengingat
-            dan bekal dalam menjalani kehidupan.
-          </p>
-
-          <div class="agenda-time">
-            05.30 WIB
-          </div>
-
-          <div class="agenda-tag">
-            Setiap Hari
-          </div>
-
-        </div>
-
-
-        <!-- TPA -->
-
-        <div class="agenda-card">
-
-          <div class="agenda-icon">
-            📖
-          </div>
-
-          <h3>
-            TPA Malam
-          </h3>
-
-          <p>
-            Kegiatan belajar membaca dan
-            memahami Al-Qur'an yang dilaksanakan
-            setelah waktu Maghrib.
-          </p>
-
-          <div class="agenda-time">
-            18.30 WIB
-          </div>
-
-          <div class="agenda-tag">
-            Setiap Hari • Ba'da Maghrib
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================================================
-       TODAY + QIBLA
-  ========================================================== -->
-
-  <section class="today-section">
-
-    <div class="container">
-
-      <div class="section-label">
-        Informasi Hari Ini
-      </div>
-
-      <h2 class="section-title">
-        Today at Al-Mujadin
-      </h2>
-
-
-      <div class="info-grid">
-
-
-        <!-- CALENDAR -->
-
-        <div class="info-card">
-
-          <h3>
-            📅 Kalender
-          </h3>
-
-          <div
-            class="calendar-number"
-            id="calendarDay"
-          >
-            --
-          </div>
-
-          <div
-            class="calendar-month"
-            id="calendarMonth"
-          >
-            Memuat...
-          </div>
-
-          <div
-            class="calendar-hijri"
-            id="calendarHijri"
-          >
-            Memuat kalender Hijriah...
-          </div>
-
-        </div>
-
-
-        <!-- QIBLA -->
-
-        <div class="info-card">
-
-          <h3>
-            🧭 Arah Kiblat
-          </h3>
-
-          <div class="qibla-box">
-
-
-            <div class="compass">
-
-              <div
-                class="compass-needle"
-                id="compassNeedle"
-              ></div>
-
-            </div>
-
-
-            <div>
-
-              <div class="qibla-degree">
-                295°
-              </div>
-
-              <div class="qibla-direction">
-                Barat Laut
-              </div>
-
-              <div class="qibla-note">
-                Perkiraan arah kiblat
-                dari wilayah Kramat Jati,
-                Jakarta.
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================================================
-       LOCATION
-  ========================================================== -->
-
-  <section class="location">
-
-    <div class="container">
-
-      <div class="section-label">
-        Lokasi
-      </div>
-
-      <h2>
-        Masjid Al-Mujahidin
-      </h2>
-
-      <div class="location-address">
-
-        Jl. Nusa 1 No. 38<br>
-        Kramat Jati, Jakarta
-
-      </div>
-
-
-      <a
-        class="map-button"
-        href="https://www.google.com/maps/search/?api=1&query=Masjid+Al-Mujahidin+Jl.+Nusa+1+No.+38+Kramat+Jati"
-        target="_blank"
-        rel="noopener"
-      >
-        Buka Google Maps ↗
-      </a>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================================================
-       FOOTER
-  ========================================================== -->
-
-  <footer>
-
-    <strong>
-      ALMUJADIN DIGITAL
-    </strong>
-
-    <br><br>
-
-    Masjid Al-Mujahidin • Kramat Jati
-
-    <br><br>
-
-    © 2026 AlMujadin Digital
-
-  </footer>
-
-
-
-  <!-- =========================================================
-       JAVASCRIPT
-  ========================================================== -->
-
-  <script>
-
-
-    /* =========================================================
-       LOCATION
-    ========================================================== */
-
-    /*
-      Koordinat perkiraan Kramat Jati.
-      Ganti dengan koordinat persis masjid jika sudah punya.
-    */
-
-    const LAT = -6.2747;
-    const LON = 106.8706;
-
-
-
-    /* =========================================================
-       LIVE CLOCK
-    ========================================================== */
-
-    function updateClock() {
-
-      const now = new Date();
-
-
-      const time =
-        now.toLocaleTimeString(
-          "id-ID",
-          {
-            timeZone: "Asia/Jakarta",
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit",
-            hour12: false
-          }
-        );
-
-
-      const date =
-        now.toLocaleDateString(
-          "id-ID",
-          {
-            timeZone: "Asia/Jakarta",
-            weekday: "long",
-            day: "numeric",
-            month: "long",
-            year: "numeric"
-          }
-        );
-
-
-      document.getElementById("clock")
-        .textContent =
-        time + " WIB";
-
-
-      document.getElementById("date")
-        .textContent =
-        date;
-
-    }
-
-
-    updateClock();
-
-    setInterval(
-      updateClock,
-      1000
-    );
-
-
-
-    /* =========================================================
-       HIJRI CALENDAR
-    ========================================================== */
-
-    function updateCalendar() {
-
-      const now = new Date();
-
-
-      const hijri =
-        new Intl.DateTimeFormat(
-          "id-ID-u-ca-islamic",
-          {
-            timeZone:
-              "Asia/Jakarta",
-
-            day:
-              "numeric",
-
-            month:
-              "long",
-
-            year:
-              "numeric"
-          }
-        ).format(now);
-
-
-      const day =
-        new Intl.DateTimeFormat(
-          "id-ID",
-          {
-            timeZone:
-              "Asia/Jakarta",
-
-            day:
-              "numeric"
-          }
-        ).format(now);
-
-
-      const month =
-        new Intl.DateTimeFormat(
-          "id-ID",
-          {
-            timeZone:
-              "Asia/Jakarta",
-
-            weekday:
-              "long",
-
-            day:
-              "numeric",
-
-            month:
-              "long",
-
-            year:
-              "numeric"
-          }
-        ).format(now);
-
-
-      document.getElementById("hijri")
-        .textContent =
-        hijri;
-
-
-      document.getElementById("calendarDay")
-        .textContent =
-        day;
-
-
-      document.getElementById("calendarMonth")
-        .textContent =
-        month;
-
-
-      document.getElementById("calendarHijri")
-        .textContent =
-        hijri;
-
-    }
-
-
-    updateCalendar();
-
-
-
-    /* =========================================================
-       PRAYER TIMES
-    ========================================================== */
-
-    async function getPrayerTimes() {
-
-      try {
-
-        const now =
-          new Date();
-
-
-        const day =
-          now.getDate();
-
-
-        const month =
-          now.getMonth() + 1;
-
-
-        const year =
-          now.getFullYear();
-
-
-        const url =
-          `https://api.aladhan.com/v1/timings/${day}-${month}-${year}` +
-          `?latitude=${LAT}` +
-          `&longitude=${LON}` +
-          `&method=20`;
-
-
-        const response =
-          await fetch(url);
-
-
-        const data =
-          await response.json();
-
-
-        const timings =
-          data.data.timings;
-
-
-        document.getElementById("fajr")
-          .textContent =
-          cleanTime(timings.Fajr);
-
-
-        document.getElementById("dhuhr")
-          .textContent =
-          cleanTime(timings.Dhuhr);
-
-
-        document.getElementById("asr")
-          .textContent =
-          cleanTime(timings.Asr);
-
-
-        document.getElementById("maghrib")
-          .textContent =
-          cleanTime(timings.Maghrib);
-
-
-        document.getElementById("isha")
-          .textContent =
-          cleanTime(timings.Isha);
-
-
-        updatePrayerStatus(timings);
-
-      }
-
-      catch(error) {
-
-        console.error(
-          "Gagal mengambil jadwal sholat:",
-          error
-        );
-
-        document.getElementById("nextPrayer")
-          .textContent =
-          "Data belum tersedia";
-
-      }
-
-    }
-
-
-    function cleanTime(time) {
-
-      return time
-        .split(" ")[0];
-
-    }
-
-
-    getPrayerTimes();
-
-
-    /*
-      Refresh setiap 30 menit.
-    */
-
-    setInterval(
-      getPrayerTimes,
-      30 * 60 * 1000
-    );
-
-
-
-    /* =========================================================
-       PRAYER STATUS
-    ========================================================== */
-
-    function updatePrayerStatus(timings) {
-
-      const now =
-        new Date();
-
-
-      const current =
-        now.getHours() * 60 +
-        now.getMinutes();
-
-
-      const prayers = [
-
-        {
-          name:
-            "Subuh",
-
-          time:
-            timings.Fajr
-        },
-
-        {
-          name:
-            "Dzuhur",
-
-          time:
-            timings.Dhuhr
-        },
-
-        {
-          name:
-            "Ashar",
-
-          time:
-            timings.Asr
-        },
-
-        {
-          name:
-            "Maghrib",
-
-          time:
-            timings.Maghrib
-        },
-
-        {
-          name:
-            "Isya",
-
-          time:
-            timings.Isha
-        }
-
-      ];
-
-
-      const cards =
-        document.querySelectorAll(
-          ".prayer-card"
-        );
-
-
-      cards.forEach(card => {
-
-        card.classList.remove(
-          "active"
-        );
-
-      });
-
-
-      let nextPrayer =
-        null;
-
-
-      for (
-        let i = 0;
-        i < prayers.length;
-        i++
-      ) {
-
-        const time =
-          parseInt(
-            prayers[i].time
-              .split(":")[0]
-          ) * 60 +
-
-          parseInt(
-            prayers[i].time
-              .split(":")[1]
-          );
-
-
-        if (
-          current < time
-        ) {
-
-          nextPrayer =
-            prayers[i];
-
-          break;
-
-        }
-
-      }
-
-
-      /*
-        Kalau semua waktu sudah lewat,
-        next = Subuh besok.
-      */
-
-      if (!nextPrayer) {
-
-        nextPrayer =
-          prayers[0];
-
-      }
-
-
-      document.getElementById(
-        "nextPrayer"
-      ).textContent =
-
-        nextPrayer.name +
-        " • " +
-        cleanTime(nextPrayer.time);
-
-
-      /*
-        Highlight waktu sholat
-        yang sedang berlangsung.
-      */
-
-      for (
-        let i = 0;
-        i < prayers.length;
-        i++
-      ) {
-
-        const currentTime =
-          parseInt(
-            prayers[i].time
-              .split(":")[0]
-          ) * 60 +
-
-          parseInt(
-            prayers[i].time
-              .split(":")[1]
-          );
-
-
-        const nextTime =
-          i < prayers.length - 1
-
-            ?
-
-            parseInt(
-              prayers[i + 1].time
-                .split(":")[0]
-            ) * 60 +
-
-            parseInt(
-              prayers[i + 1].time
-                .split(":")[1]
-            )
-
-            :
-
-            1440;
-
-
-        if (
-          current >= currentTime &&
-          current < nextTime
-        ) {
-
-          cards[i]
-            .classList.add(
-              "active"
-            );
-
-        }
-
-      }
-
-    }
-
-
-
-    /* =========================================================
-       20 QUOTES
-    ========================================================== */
-
-    const quotes = [
-
-      {
-        arabic:
-          "إِنَّ مَعَ الْعُسْرِ يُسْرًا",
-
-        meaning:
-          "Sesungguhnya bersama kesulitan ada kemudahan.",
-
-        source:
-          "QS. Al-Insyirah: 6"
-      },
-
-
-      {
-        arabic:
-          "فَاذْكُرُونِي أَذْكُرْكُمْ",
-
-        meaning:
-          "Maka ingatlah kepada-Ku, niscaya Aku akan mengingatmu.",
-
-        source:
-          "QS. Al-Baqarah: 152"
-      },
-
-
-      {
-        arabic:
-          "وَبِالْوَالِدَيْنِ إِحْسَانًا",
-
-        meaning:
-          "Dan berbuat baiklah kepada kedua orang tua.",
-
-        source:
-          "QS. Al-Baqarah: 83"
-      },
-
-
-      {
-        arabic:
-          "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",
-
-        meaning:
-          "Sesungguhnya Allah bersama orang-orang yang sabar.",
-
-        source:
-          "QS. Al-Baqarah: 153"
-      },
-
-
-      {
-        arabic:
-          "وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ",
-
-        meaning:
-          "Barang siapa bertawakal kepada Allah, niscaya Allah akan mencukupkan keperluannya.",
-
-        source:
-          "QS. At-Talaq: 3"
-      },
-
-
-      {
-        arabic:
-          "وَقُل رَّبِّ زِدْنِي عِلْمًا",
-
-        meaning:
-          "Dan katakanlah, 'Ya Tuhanku, tambahkanlah kepadaku ilmu.'",
-
-        source:
-          "QS. Taha: 114"
-      },
-
-
-      {
-        arabic:
-          "فَاذْكُرُوا اللَّهَ قِيَامًا وَقُعُودًا",
-
-        meaning:
-          "Maka ingatlah Allah ketika berdiri, duduk, dan berbaring.",
-
-        source:
-          "QS. An-Nisa: 103"
-      },
-
-
-      {
-        arabic:
-          "إِنَّ اللَّهَ يُحِبُّ التَّوَّابِينَ",
-
-        meaning:
-          "Sesungguhnya Allah mencintai orang-orang yang bertaubat.",
-
-        source:
-          "QS. Al-Baqarah: 222"
-      },
-
-
-      {
-        arabic:
-          "وَلَا تَهِنُوا وَلَا تَحْزَنُوا",
-
-        meaning:
-          "Janganlah kamu merasa lemah dan jangan pula bersedih.",
-
-        source:
-          "QS. Ali 'Imran: 139"
-      },
-
-
-      {
-        arabic:
-          "وَاللَّهُ خَيْرٌ حَافِظًا",
-
-        meaning:
-          "Dan Allah adalah sebaik-baik penjaga.",
-
-        source:
-          "QS. Yusuf: 64"
-      },
-
-
-      {
-        arabic:
-          "إِنَّ اللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ",
-
-        meaning:
-          "Sesungguhnya Allah tidak mengubah keadaan suatu kaum.",
-
-        source:
-          "QS. Ar-Ra'd: 11"
-      },
-
-
-      {
-        arabic:
-          "وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ",
-
-        meaning:
-          "Mohonlah pertolongan dengan sabar dan salat.",
-
-        source:
-          "QS. Al-Baqarah: 45"
-      },
-
-
-      {
-        arabic:
-          "وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا",
-
-        meaning:
-          "Barang siapa bertakwa kepada Allah, niscaya Dia akan membukakan jalan keluar baginya.",
-
-        source:
-          "QS. At-Talaq: 2"
-      },
-
-
-      {
-        arabic:
-          "وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ",
-
-        meaning:
-          "Bersyukurlah kepada-Ku dan janganlah kamu mengingkari-Ku.",
-
-        source:
-          "QS. Al-Baqarah: 152"
-      },
-
-
-      {
-        arabic:
-          "وَقُولُوا لِلنَّاسِ حُسْنًا",
-
-        meaning:
-          "Dan ucapkanlah kata-kata yang baik kepada manusia.",
-
-        source:
-          "QS. Al-Baqarah: 83"
-      },
-
-
-      {
-        arabic:
-          "إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ",
-
-        meaning:
-          "Sesungguhnya Allah mencintai orang-orang yang berbuat kebaikan.",
-
-        source:
-          "QS. Al-Baqarah: 195"
-      },
-
-
-      {
-        arabic:
-          "وَقُلْ رَبِّ ارْحَمْهُمَا",
-
-        meaning:
-          "Dan katakanlah, 'Wahai Tuhanku, sayangilah keduanya.'",
-
-        source:
-          "QS. Al-Isra: 24"
-      },
-
-
-      {
-        arabic:
-          "وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ",
-
-        meaning:
-          "Dan tidak ada taufik bagiku melainkan dengan pertolongan Allah.",
-
-        source:
-          "QS. Hud: 88"
-      },
-
-
-      {
-        arabic:
-          "وَلَذِكْرُ اللَّهِ أَكْبَرُ",
-
-        meaning:
-          "Dan mengingat Allah itu lebih besar keutamaannya.",
-
-        source:
-          "QS. Al-Ankabut: 45"
-      },
-
-
-      {
-        arabic:
-          "إِنَّ اللَّهَ مَعَ الَّذِينَ اتَّقَوا",
-
-        meaning:
-          "Sesungguhnya Allah bersama orang-orang yang bertakwa.",
-
-        source:
-          "QS. An-Nahl: 128"
-      }
-
-    ];
-
-
-
-    /* =========================================================
-       QUOTE SLIDER
-    ========================================================== */
-
-    let quoteIndex =
-      0;
-
-
-    const quoteArabic =
-      document.getElementById(
-        "quoteArabic"
-      );
-
-
-    const quoteMeaning =
-      document.getElementById(
-        "quoteMeaning"
-      );
-
-
-    const quoteSource =
-      document.getElementById(
-        "quoteSource"
-      );
-
-
-    const quoteNumber =
-      document.getElementById(
-        "quoteNumber"
-      );
-
-
-    const quoteSlide =
-      document.getElementById(
-        "quoteSlide"
-      );
-
-
-    const quoteDots =
-      document.getElementById(
-        "quoteDots"
-      );
-
-
-    /*
-      Create dots
-    */
-
-    quotes.forEach(
-      (_, index) => {
-
-        const dot =
-          document.createElement(
-            "div"
-          );
-
-        dot.className =
-          "quote-dot";
-
-        if (
-          index === 0
-        ) {
-
-          dot.classList.add(
-            "active"
-          );
-
-        }
-
-        quoteDots.appendChild(
-          dot
-        );
-
-      }
-    );
-
-
-    function showQuote(index) {
-
-      const quote =
-        quotes[index];
-
-
-      quoteSlide.classList.remove(
-        "fade"
-      );
-
-
-      /*
-        Restart animation
-      */
-
-      void quoteSlide.offsetWidth;
-
-
-      quoteSlide.classList.add(
-        "fade"
-      );
-
-
-      quoteArabic.textContent =
-        quote.arabic;
-
-
-      quoteMeaning.textContent =
-        quote.meaning;
-
-
-      quoteSource.textContent =
-        quote.source;
-
-
-      quoteNumber.textContent =
-
-        String(index + 1)
-          .padStart(2, "0")
-
-        +
-
-        " / "
-
-        +
-
-        String(quotes.length)
-          .padStart(2, "0");
-
-
-      document
-        .querySelectorAll(
-          ".quote-dot"
-        )
-        .forEach(
-          (dot, i) => {
-
-            dot.classList.toggle(
-              "active",
-              i === index
-            );
-
-          }
-        );
-
-    }
-
-
-    /*
-      Auto slide setiap 6 detik
-    */
-
-    setInterval(
-      () => {
-
-        quoteIndex =
-          (quoteIndex + 1)
-          % quotes.length;
-
-        showQuote(
-          quoteIndex
-        );
-
-      },
-      6000
-    );
-
-
-    showQuote(0);
-
-
-
-    /* =========================================================
-       QIBLA COMPASS
-    ========================================================== */
-
-    /*
-      Arah kiblat perkiraan:
-      295° dari utara.
-    */
-
-    const qiblaDegree =
-      295;
-
-
-    const needle =
-      document.getElementById(
-        "compassNeedle"
-      );
-
-
-    /*
-      Default tampilan
-    */
-
-    needle.style.transform =
-      `rotate(${qiblaDegree}deg)`;
-
-
-    /*
-      Jika browser HP mendukung
-      orientation sensor, gunakan
-      arah perangkat.
-    */
-
-    window.addEventListener(
-      "deviceorientation",
-      event => {
-
-        if (
-          event.alpha !== null
-        ) {
-
-          const heading =
-            event.alpha;
-
-
-          const rotation =
-            qiblaDegree -
-            heading;
-
-
-          needle.style.transform =
-            `rotate(${rotation}deg)`;
-
-        }
-
-      },
-      true
-    );
-
-
-  </script>
-
+</main>
+
+<footer>
+  <strong>ALMUJADIN DIGITAL</strong>
+  <p>Masjid Al-Mujahidin • Jl. Nusa 1 No. 38, Kramat Jati</p>
+  <a class="map" target="_blank" rel="noopener"
+     href="https://www.google.com/maps/search/?api=1&query=Masjid+Al-Mujahidin+Jl.+Nusa+1+No.+38+Kramat+Jati">
+     Buka Google Maps ↗
+  </a>
+</footer>
+
+<script>
+const LAT = -6.2747;
+const LON = 106.8706;
+
+const prayerMap = {
+  Imsak:"imsak", Fajr:"fajr", Sunrise:"sunrise",
+  Dhuhr:"dhuhr", Asr:"asr", Maghrib:"maghrib", Isha:"isha"
+};
+
+const prayerNames = {
+  Imsak:"Imsak", Fajr:"Subuh", Sunrise:"Terbit",
+  Dhuhr:"Dzuhur", Asr:"Ashar", Maghrib:"Maghrib", Isha:"Isya"
+};
+
+let prayerData = null;
+
+function nowJakarta(){
+  return new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Jakarta"}));
+}
+
+function updateClock(){
+  const d=nowJakarta();
+  const hh=String(d.getHours()).padStart(2,"0");
+  const mm=String(d.getMinutes()).padStart(2,"0");
+  const ss=String(d.getSeconds()).padStart(2,"0");
+  document.getElementById("clock").textContent=`${hh}.${mm}.${ss}`;
+
+  document.getElementById("date").textContent=d.toLocaleDateString("id-ID",{
+    weekday:"long",day:"numeric",month:"long",year:"numeric"
+  });
+
+  document.getElementById("dayNumber").textContent=d.getDate();
+  document.getElementById("fullDate").textContent=d.toLocaleDateString("id-ID",{
+    weekday:"long",day:"numeric",month:"long",year:"numeric"
+  });
+
+  try{
+    document.getElementById("hijri").textContent=new Intl.DateTimeFormat(
+      "id-ID-u-ca-islamic",{day:"numeric",month:"long",year:"numeric"}
+    ).format(d);
+  }catch(e){}
+  updateNext();
+}
+setInterval(updateClock,1000);
+updateClock();
+
+function minutes(t){
+  if(!t) return 9999;
+  const [h,m]=t.split(":").map(Number);
+  return h*60+m;
+}
+function clean(t){return (t||"--:--").split(" ")[0]}
+
+async function loadPrayerTimes(){
+  const d=nowJakarta();
+  const url=`https://api.aladhan.com/v1/timings/${d.getDate()}-${d.getMonth()+1}-${d.getFullYear()}?latitude=${LAT}&longitude=${LON}&method=20`;
+  try{
+    const res=await fetch(url);
+    const json=await res.json();
+    prayerData=json.data.timings;
+    Object.entries(prayerMap).forEach(([key,id])=>{
+      document.getElementById(id).textContent=clean(prayerData[key]);
+    });
+    updateNext();
+  }catch(e){
+    document.getElementById("nextName").textContent="Data belum tersedia";
+  }
+}
+
+function updateNext(){
+  if(!prayerData)return;
+  const d=nowJakarta();
+  const current=d.getHours()*60+d.getMinutes()+d.getSeconds()/60;
+  const keys=["Fajr","Dhuhr","Asr","Maghrib","Isha"];
+  let next=null, diff=0;
+  for(const key of keys){
+    const m=minutes(clean(prayerData[key]));
+    if(m>current){next=key;diff=m-current;break;}
+  }
+  if(!next){next="Fajr";diff=1440-current+minutes(clean(prayerData.Fajr));}
+  document.getElementById("nextName").textContent=prayerNames[next];
+
+  const total=Math.max(0,Math.floor(diff*60));
+  const h=String(Math.floor(total/3600)).padStart(2,"0");
+  const m=String(Math.floor((total%3600)/60)).padStart(2,"0");
+  const s=String(total%60).padStart(2,"0");
+  document.getElementById("countdown").textContent=`${h}:${m}:${s}`;
+
+  document.querySelectorAll(".prayer").forEach(x=>x.classList.remove("active"));
+  const active=keys.find((key,i)=>{
+    const start=minutes(clean(prayerData[key]));
+    const end=i<keys.length-1?minutes(clean(prayerData[keys[i+1]])):1440;
+    return current>=start&&current<end;
+  });
+  if(active){
+    document.querySelector(`.prayer[data-key="${active}"]`)?.classList.add("active");
+  }
+}
+loadPrayerTimes();
+setInterval(loadPrayerTimes,30*60*1000);
+
+/* 20 quotes — tiap slide berbeda */
+const quotes=[
+["إِنَّ مَعَ الْعُسْرِ يُسْرًا","Sesungguhnya bersama kesulitan ada kemudahan.","QS. Al-Insyirah: 6"],
+["فَاذْكُرُونِي أَذْكُرْكُمْ","Maka ingatlah kepada-Ku, niscaya Aku akan mengingatmu.","QS. Al-Baqarah: 152"],
+["وَقُل رَّبِّ زِدْنِي عِلْمًا","Ya Tuhanku, tambahkanlah kepadaku ilmu.","QS. Taha: 114"],
+["إِنَّ اللَّهَ مَعَ الصَّابِرِينَ","Sesungguhnya Allah bersama orang-orang yang sabar.","QS. Al-Baqarah: 153"],
+["وَعَلَى اللَّهِ فَتَوَكَّلُوا","Dan hanya kepada Allah hendaklah kamu bertawakal.","QS. Al-Ma'idah: 23"],
+["وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ","Mohonlah pertolongan dengan sabar dan salat.","QS. Al-Baqarah: 45"],
+["إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ","Sesungguhnya Allah mencintai orang-orang yang berbuat baik.","QS. Al-Baqarah: 195"],
+["وَقُولُوا لِلنَّاسِ حُسْنًا","Ucapkanlah kata-kata yang baik kepada manusia.","QS. Al-Baqarah: 83"],
+["وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ","Barang siapa bertawakal kepada Allah, niscaya Dia akan mencukupinya.","QS. At-Talaq: 3"],
+["وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ","Tidak ada taufik bagiku melainkan dengan pertolongan Allah.","QS. Hud: 88"],
+["إِنَّ اللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ","Sesungguhnya Allah tidak mengubah keadaan suatu kaum.","QS. Ar-Ra'd: 11"],
+["وَلَذِكْرُ اللَّهِ أَكْبَرُ","Dan mengingat Allah itu lebih besar keutamaannya.","QS. Al-Ankabut: 45"],
+["وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ","Bersyukurlah kepada-Ku dan janganlah kamu mengingkari-Ku.","QS. Al-Baqarah: 152"],
+["وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا","Barang siapa bertakwa kepada Allah, niscaya Dia akan membukakan jalan keluar.","QS. At-Talaq: 2"],
+["وَاللَّهُ خَيْرٌ حَافِظًا","Dan Allah adalah sebaik-baik penjaga.","QS. Yusuf: 64"],
+["إِنَّ اللَّهَ يُحِبُّ التَّوَّابِينَ","Sesungguhnya Allah mencintai orang-orang yang bertaubat.","QS. Al-Baqarah: 222"],
+["وَلَا تَهِنُوا وَلَا تَحْزَنُوا","Janganlah kamu merasa lemah dan jangan pula bersedih.","QS. Ali 'Imran: 139"],
+["وَقُلْ رَبِّ ارْحَمْهُمَا","Wahai Tuhanku, sayangilah keduanya.","QS. Al-Isra: 24"],
+["إِنَّ اللَّهَ مَعَ الَّذِينَ اتَّقَوا","Sesungguhnya Allah bersama orang-orang yang bertakwa.","QS. An-Nahl: 128"],
+["فَاذْكُرُوا اللَّهَ قِيَامًا وَقُعُودًا","Ingatlah Allah ketika berdiri, duduk, dan berbaring.","QS. An-Nisa: 103"]
+];
+
+let qi=0;
+const dots=document.getElementById("dots");
+quotes.forEach((_,i)=>{
+  const d=document.createElement("span");d.className="dot";if(i===0)d.classList.add("on");dots.appendChild(d);
+});
+function showQuote(i){
+  const q=quotes[i];
+  document.getElementById("quoteNo").textContent=`${String(i+1).padStart(2,"0")} / 20`;
+  document.getElementById("quoteArabic").textContent=q[0];
+  document.getElementById("quoteMeaning").textContent=q[1];
+  document.getElementById("quoteSource").textContent=q[2];
+  document.querySelectorAll(".dot").forEach((d,n)=>d.classList.toggle("on",n===i));
+}
+showQuote(0);
+setInterval(()=>{qi=(qi+1)%quotes.length;showQuote(qi)},6000);
+
+/* Compass: fallback 295°, sensor if browser allows */
+document.getElementById("needle").style.transform="rotate(295deg)";
+window.addEventListener("deviceorientationabsolute",e=>{
+  if(typeof e.alpha==="number"){
+    document.getElementById("needle").style.transform=`rotate(${295-e.alpha}deg)`;
+  }
+},true);
+</script>
 </body>
 </html>
